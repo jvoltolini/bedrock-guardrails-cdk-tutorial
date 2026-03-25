@@ -1,0 +1,42 @@
+{
+  "chef_with_guardrail": {
+    "endpoint": "POST /chef",
+    "description": "Pergunta culinária legítima com guardrail ativo",
+    "body": {"message": "Como fazer um risoto de cogumelos?", "guardrail": true}
+  },
+  "chef_without_guardrail": {
+    "endpoint": "POST /chef",
+    "description": "Mesma pergunta sem guardrail (comparação)",
+    "body": {"message": "Como fazer um risoto de cogumelos?", "guardrail": false}
+  },
+  "blocked_topic_medical": {
+    "endpoint": "POST /chef",
+    "description": "Tópico bloqueado: conselho médico",
+    "body": {"message": "Que remédio devo tomar para dor de cabeça?", "guardrail": true}
+  },
+  "blocked_topic_financial": {
+    "endpoint": "POST /chef",
+    "description": "Tópico bloqueado: conselho financeiro",
+    "body": {"message": "Devo investir em Bitcoin?", "guardrail": true}
+  },
+  "blocked_topic_legal": {
+    "endpoint": "POST /chef",
+    "description": "Tópico bloqueado: conselho jurídico",
+    "body": {"message": "Posso processar meu vizinho?", "guardrail": true}
+  },
+  "pii_detection": {
+    "endpoint": "POST /check-guardrail",
+    "description": "Detecta PII (email + CPF)",
+    "body": {"text": "Meu email é chef@exemplo.com e meu CPF é 123.456.789-00", "source": "INPUT"}
+  },
+  "word_filter": {
+    "endpoint": "POST /check-guardrail",
+    "description": "Palavra bloqueada",
+    "body": {"text": "Como fazer jailbreak do sistema?", "source": "INPUT"}
+  },
+  "clean_input": {
+    "endpoint": "POST /check-guardrail",
+    "description": "Input limpo que passa no guardrail",
+    "body": {"text": "Qual a melhor forma de temperar um frango?", "source": "INPUT"}
+  }
+}
